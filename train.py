@@ -3,7 +3,6 @@ import numpy as np
 import pickle
 from tqdm import tqdm
 from logging import StreamHandler, DEBUG, Formatter, FileHandler, getLogger
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold, ParameterGrid
 from sklearn.metrics import log_loss, roc_auc_score, roc_curve, auc
 
@@ -37,7 +36,7 @@ if __name__ == '__main__':
     logger.setLevel(DEBUG)
     logger.addHandler(handler)
 
-    logger.info('start')
+    logger.info('% start')
 
     df = load_train_data()
 
@@ -52,13 +51,18 @@ if __name__ == '__main__':
 
     # Traverse model and parameter set.
     for model, all_params in tqdm(models.items()):
+        logger.info('\nParameter tuning process of ' +
+                    names[model] +
+                    'in shown in \cref{pt:' +
+                    names[model] +
+                    '}')
         logger.info('\n'
                     '\\begin{table}')
         logger.info('\\caption{' + names[model] + '}')
         logger.info('\\label{pt:' + names[model] + '}')
         logger.info('\\begin{tabular}{llll}'
                     '\\toprule'
-                    '\\bfseries Best Parameters & '
+                    '\\bfseries Parameters & '
                     '\\bfseries Gini Score & '
                     '\\bfseries Logloss &'
                     '\\bfseries Accuracies \\\\'
@@ -117,7 +121,7 @@ if __name__ == '__main__':
                                 sc_logloss,
                                 sc_accuracy))
 
-        logger.info('\\bottomrule\\end{tabular}')
+        logger.info('\\bottomrule\n\\end{tabular}\n\\end{table}')
 
         # logger.debug('\n% minimum params: {}'.format(min_params))
         # logger.debug('\tgini: {}'.format(min_score))
@@ -155,8 +159,11 @@ if __name__ == '__main__':
             accuracy_score[model].append(sc_accuracy)
             pass
 
-    logger.info('Final result:\n\n')
-    logger.info('\\begin{tabular}{llll}'
+    logger.info('\nFinal result is shown in \cref{final}:\n\n')
+    logger.info('\\begin{table}\n'
+                '\\centering\n'
+                '\\Caption{Final Evaluation}\\label{final}\n'
+                '\\begin{tabular}{llll}\n'
                 '\\toprule'
                 '\\bfseries Model & '
                 '\\bfseries Best Parameters & '
@@ -171,6 +178,6 @@ if __name__ == '__main__':
                             params,
                             accuracy_score[model],
                             gini_score[model]))
-    logger.info('\\bottomrule\\end{tabular}')
+    logger.info('\\bottomrule\\end{tabular}\n\\end{table}')
 
     logger.info('end')

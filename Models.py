@@ -3,12 +3,12 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import BaggingClassifier, GradientBoostingClassifier, \
-    AdaBoostClassifier
+    AdaBoostClassifier, RandomForestClassifier
 
 models = {
     MLPClassifier:
         {
-            'hidden_layer_sizes': [(5, 2), (10, 4), (30, 5)],
+            'hidden_layer_sizes': [(5, 2), (10, 4), (10, 10), (30, 5)],
             'solver': ['lbfgs', 'sgd', 'adam'],
             'max_iter': [200, 1000]
         },
@@ -37,22 +37,32 @@ models = {
 
     BaggingClassifier:
         {
-            # 'n_estimators': [10, 15, 20],
+            'n_estimators': [10, 15, 20],
             'bootstrap': [True, False],
-            # 'warm_start': [True, False]
+            'warm_start': [True, False]
         },
 
     GradientBoostingClassifier:
         {
             'loss': ['deviance', 'exponential'],
-            # 'n_estimators': [50, 100, 200],
-            # 'max_depth' : [2,3,4]
+            'n_estimators': [50, 100, 200],
+            'max_depth': [2, 3, 4]
         },
 
     AdaBoostClassifier:
         {
             'n_estimators': [50, 100, 10],
             'algorithm': ['SAMME', 'SAMME.R'],
+
+        },
+
+    RandomForestClassifier:
+        {
+            'n_estimators': [10, 20, 40],
+            'criterion': ['gini', 'entropy'],
+            'max_depth': [None, 10, 50],
+            'bootstrap': [True, False],
+            'warm_start': [True, False],
 
         }
 }
@@ -64,5 +74,6 @@ names = {
     DecisionTreeClassifier: 'DecisionTreeClassifier',
     BaggingClassifier: 'BaggingClassifier',
     GradientBoostingClassifier: 'GradientBoostingClassifier',
-    AdaBoostClassifier: 'AdaBoostClassifier'
+    AdaBoostClassifier: 'AdaBoostClassifier',
+    RandomForestClassifier: 'RandomForestClassifier'
 }
