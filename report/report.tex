@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\usepackage[l2tabu, orthodox]{nag}
+\usepackage{tabu}
+\usepackage[a1paper]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{standalone}
+\usepackage{booktabs}
+
+\usepackage{parskip}
+% As a rule of thumb it should be loaded at the end of the preamble, after all
+% the other packages. A few exceptions exist, such as the cleveref package that
+% is also mentioned in this post. Hence, cleveref should be loaded after
+% hyperref.
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0.8,0.2,0.5}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+% This package introduces the \cref command. When using this command to make
+% cross-references, instead of \ref or \eqref, a word is placed in front of the
+% reference according to the type of reference: fig. for figures, eq. for
+% equations
+\usepackage{cleveref}
+
+\title{Assignment 5 Part II Report}
+\author{Hanlin He\footnote{hxh160630@utdallas.edu},
+Tao Wang\footnote{txw162630@utdallas.edu}}
+
+\begin{document}
+\maketitle
+
+\section{Choose DataSet}
+
+Dota2 Games Results Data Set
+\verb|https://archive.ics.uci.edu/ml/datasets/Dota2+Games+Results|
+
+\section{Preprocess the DataSet}
+
+The data set is by default normalized. Most attributes are either 1 or 0.
+Only attribute that is not normalized is area code, which is categorical.
+Thus, no preprocess was conducted for the data set.
+
+\section{Finding Best Classifier Parameters}
+
+Hyperparemeters tuning was conducted using \emph{grid search}. The corresponding
+scikit-learn class used was \verb|ParameterGrid|. The gini-score was used as evaluation metric.
+
+Scikit-Learn library was used throughout the assignment.
+Classifiers and actual scikit-learn class used are listed in \cref{map}:
+
+\begin{table}[!ht]
+\centering
+\caption{Mapping from Algorithm to Actual Class}\label{map}
+\begin{tabular}{ll}
+\toprule
+\bfseries Class in Scikit-Learn & \bfseries ML Algorithm \\\midrule
+MLPClassifier & Perceptron, Neural Network and Deep Learning \\
+LogisticRegression & Logistic Regression \\
+GaussianNB & Naive Bayes \\
+DecisionTreeClassifier & Decision Trees \\
+BaggingClassifier & Decision Trees \\
+GradientBoostingClassifier & Gradient Boosting \\
+AdaBoostClassifier & AdaBoost \\
+RandomForestClassifier & Random Forests \\
+SVC & SVM \\
+KNeighborsClassifier & K-Nearest Neighbors \\\bottomrule
+\end{tabular}
+\end{table}
+
+The tuning result were recorded in the log, and are listed in the \cref{ahtr}.
+
+All classifiers are trained and tested in batch mode. Since the size of the data set is relatively large, training time is long.
+One execution of all classifiers except \verb|SVC| took a little more than 3 hours.
+
+The \verb|SVC| classifier, based on scikit-learn's documentation, has fit time complexity more than quadratic with the number of samples, which makes it hard to scale to dataset with more than a couple of 10000 samples. Furthermore, the \verb|SVC| classifier does not support \verb|predict_proba| interface, which made it not possible to fit in the gini-score based metric. Thus the \verb|SVC| classifier was jumped over in the experiment.
+
+\section{Testing All Classifiers Together}
+
+After best parameters set for each classifier was determined, all classifiers were
+tested on the same set of testing data using same K-fold sample.
+
+Average accuracy and gini-score are listed in \cref{sfinal}.
+
+\begin{table}[!ht]
+\centering
+\caption{Final Evaluation}\label{sfinal}
+\begin{tabular}{llll}
+\toprule\bfseries Model & \bfseries Best Parameters & \bfseries Accuracies & \bfseries Gini Score \\\midrule
+MLPClassifier & \verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & 0.5751528220128237 & -0.2320081259257396 \\
+LogisticRegression & \verb|{'C': 0.1, 'fit_intercept': False, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & 0.5843800851839605 & -0.2388195096109058 \\
+GaussianNB & \verb|{'priors': None}| & 0.5241446342766946 & -0.07582639860482021 \\
+DecisionTreeClassifier & \verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'}| & 0.5378446159833772 & -0.06988636352674393 \\
+BaggingClassifier & \verb|{'bootstrap': True, 'n_estimators': 20, 'warm_start': False}| & 0.535124423494844 & -0.09586354074015561 \\
+GradientBoostingClassifier & \verb|{'loss': 'exponential', 'max_depth': 4, 'n_estimators': 200}| & 0.5589247945511916 & -0.16708993198114297 \\
+AdaBoostClassifier & \verb|{'algorithm': 'SAMME.R', 'n_estimators': 100}| & 0.5785503139289678 & -0.20789640626993564 \\
+RandomForestClassifier & \verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True}| & 0.5530028894239795 & -0.15313258803558907 \\
+KNeighborsClassifier & \verb|{'algorithm': 'brute', 'leaf_size': 30, 'n_neighbors': 15}| & 0.5256996837786969 & -0.049596920647069796 \\
+\bottomrule\end{tabular}
+\end{table}
+
+\section{Analysis}
+
+From result we can see that performances of all classifiers were relatively close. All accuracies were ranging from $50\%$ to $60\%$.
+Nerual Network and Logistic Regression provide both the maximum accuracies and the minimum gini-score.
+No attribute is superior in influence of the result.
+
+This result is acceptable. Since the model is based on Dota2 hero picks. Although Dota2's more than 100 heros might be imbalance in some way, heroes that might be picked by the players were only a small subset, and between which heroes are fairly balanced.
+
+On the other hand, heroes picked in a match does not necessarily have much impact on the result of the game. It's player's actions and collaboration that determines the game result. Guessing a game's result based on heroes picked by each side is not much more than guess the side of tossed coin.
+
+\appendix
+
+\section{Hyperparameter Tuning Result}\label{ahtr}
+
+\input{result}
+
+\end{document}

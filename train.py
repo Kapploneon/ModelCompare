@@ -138,10 +138,13 @@ if __name__ == '__main__':
     accuracy_score = dict()
 
     for model, params in best_params.items():
+        logger.info('{} : {}'.format(names[model], params))
+
+    for model, params in best_params.items():
         gini_score[model] = []
         accuracy_score[model] = []
 
-    for train_idx, valid_idx in tqdm(cv.split(x_test, y_test)):
+    for train_idx, valid_idx in (cv.split(x_test, y_test)):
         trn_x = x_train.iloc[train_idx, :]
         val_x = x_train.iloc[valid_idx, :]
 

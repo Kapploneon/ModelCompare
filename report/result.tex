@@ -1,0 +1,434 @@
+% start 
+
+Parameter tuning process of \verb|MLPClassifier| in shown in \cref{pt:MLPClassifier} 
+
+\begin{table} \centering
+\caption{MLPClassifier} 
+\label{pt:MLPClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': True}| & 0.023441920407409222 & 0.6917400850960969 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': False}| & -0.19741087500808052 & 0.6771277916300255 & 0.5737952619934165 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 200, 'solver': 'sgd', 'warm_start': True}| & -0.009794351031875426 & 0.6917705051963632 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 200, 'solver': 'sgd', 'warm_start': False}| & -0.014576338604566974 & 0.691666932738916 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 200, 'solver': 'adam', 'warm_start': True}| & -0.24612697624535151 & 0.6689261421858412 & 0.5936538772867087 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 200, 'solver': 'adam', 'warm_start': False}| & -0.25128628872857295 & 0.6685290768072865 & 0.5891748961200151 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': True}| & 0.007487952224232375 & 0.6917593344980979 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': False}| & 0.005268344453838947 & 0.6917517105568209 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 1000, 'solver': 'sgd', 'warm_start': True}| & -0.0016919930233556535 & 0.6917551205603422 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 1000, 'solver': 'sgd', 'warm_start': False}| & 0.004178118196964009 & 0.6917526444160114 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 1000, 'solver': 'adam', 'warm_start': True}| & -0.004314320551517259 & 0.6917472693766709 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (10, 10, 10, 10, 10, 10, 10, 10, 10, 10), 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & -0.2508723784171458 & 0.6699860899285235 & 0.5897145324051589 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': True}| & -0.23812467907466228 & 0.6698343142368847 & 0.5871242782364686 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': False}| & -0.24051181807738864 & 0.6690753982483032 & 0.5897684960336733 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 200, 'solver': 'sgd', 'warm_start': True}| & -0.19815814233445095 & 0.6811253263698115 & 0.5591711186660191 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 200, 'solver': 'sgd', 'warm_start': False}| & -0.19409279408009894 & 0.6974344363042961 & 0.5059629809508391 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 200, 'solver': 'adam', 'warm_start': True}| & -0.24976502757607077 & 0.6712933348636116 & 0.586746532836868 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 200, 'solver': 'adam', 'warm_start': False}| & -0.24224852659072948 & 0.692719864985088 & 0.5563650099832713 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': True}| & -0.25191823961891013 & 0.667006245106153 & 0.5927904592304787 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': False}| & 0.0 & 0.6917395777231605 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 1000, 'solver': 'sgd', 'warm_start': True}| & -0.18553073560321853 & 0.6833056736431758 & 0.5597647185796772 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 1000, 'solver': 'sgd', 'warm_start': False}| & -0.15477710835112246 & 0.6882174126002556 & 0.5314338136096272 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 1000, 'solver': 'adam', 'warm_start': True}| & -0.2524856871300152 & 0.6679102559520324 & 0.594247477200367 \\ 
+\verb|{'hidden_layer_sizes': 100, 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & -0.24473874017120711 & 0.6708652563829381 & 0.5870163509794398 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': True}| & 0.0 & 0.6917395679178476 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': False}| & 0.0 & 0.6917395721820144 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 200, 'solver': 'sgd', 'warm_start': True}| & 0.0 & 0.6917399390615526 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 200, 'solver': 'sgd', 'warm_start': False}| & 0.0 & 0.6917396555865307 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 200, 'solver': 'adam', 'warm_start': True}| & -0.25085754334079247 & 0.6688500127580644 & 0.588311478063785 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 200, 'solver': 'adam', 'warm_start': False}| & 0.0 & 0.6917400819109822 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': True}| & 0.0 & 0.6917395678329331 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': False}| & 0.0 & 0.691739584342401 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 1000, 'solver': 'sgd', 'warm_start': True}| & 0.0 & 0.6917395917034717 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 1000, 'solver': 'sgd', 'warm_start': False}| & 0.0 & 0.6917396569173438 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 1000, 'solver': 'adam', 'warm_start': True}| & -0.2481441961945623 & 0.6678793817348317 & 0.593114241001565 \\ 
+\verb|{'hidden_layer_sizes': 1, 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & 0.0 & 0.691743246666027 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': True}| & -0.20849681217571492 & 0.6752778358701035 & 0.5802708974151422 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': False}| & -0.1623509171196056 & 0.6822008161607809 & 0.5603583184933355 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 200, 'solver': 'sgd', 'warm_start': True}| & -0.06836561543290887 & 0.692887749648827 & 0.5102800712319896 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 200, 'solver': 'sgd', 'warm_start': False}| & -0.04656485162972901 & 0.6913282807666403 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 200, 'solver': 'adam', 'warm_start': True}| & -0.25182626214551784 & 0.6670561221345881 & 0.5933300955156224 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 200, 'solver': 'adam', 'warm_start': False}| & -0.252010333903927 & 0.6732699997831298 & 0.5808644973288004 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': True}| & -0.2514514370037595 & 0.6670489659996199 & 0.5953267497706546 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': False}| & -0.24230690904082008 & 0.6689416453234696 & 0.5909556958609897 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'sgd', 'warm_start': True}| & -0.05301927795977934 & 0.6912022126190805 & 0.5262533052722465 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'sgd', 'warm_start': False}| & -0.05103941436818982 & 0.691169710249169 & 0.5304085046678538 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'adam', 'warm_start': True}| & -0.2528792488563967 & 0.6671545071807288 & 0.592412713830878 \\ 
+\verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & -0.2533946684698021 & 0.6667630909822776 & 0.5931682046300794 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': True}| & -0.009600864256505082 & 0.6917362719289238 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 200, 'solver': 'lbfgs', 'warm_start': False}| & 0.0 & 0.6917395688124434 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 200, 'solver': 'sgd', 'warm_start': True}| & 0.0 & 0.6917395697246583 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 200, 'solver': 'sgd', 'warm_start': False}| & 0.007066799592065687 & 0.6917826571738176 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 200, 'solver': 'adam', 'warm_start': True}| & 0.0 & 0.691739691688917 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 200, 'solver': 'adam', 'warm_start': False}| & 0.0 & 0.6917768964494576 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': True}| & -0.009066661333826609 & 0.6917362162764207 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 1000, 'solver': 'lbfgs', 'warm_start': False}| & 0.005456714880041735 & 0.6917403831400613 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 1000, 'solver': 'sgd', 'warm_start': True}| & -0.00707523339137861 & 0.6917254750028513 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 1000, 'solver': 'sgd', 'warm_start': False}| & 0.0 & 0.691739786738686 & 0.5265231234148184 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 1000, 'solver': 'adam', 'warm_start': True}| & -0.24974610409284792 & 0.6676570129433181 & 0.5941395499433382 \\ 
+\verb|{'hidden_layer_sizes': (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5), 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & -0.24808565020819673 & 0.668463628140003 & 0.5910636231180184 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|LogisticRegression| in shown in \cref{pt:LogisticRegression} 
+
+\begin{table} \centering
+\caption{LogisticRegression} 
+\label{pt:LogisticRegression} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'C': 0.1, 'fit_intercept': True, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & -0.2524223285047067 & 0.6668351389242444 & 0.5934380227726512 \\ 
+\verb|{'C': 0.1, 'fit_intercept': True, 'penalty': 'l1', 'random_state': 0, 'solver': 'liblinear'}| & -0.2524336125076654 & 0.6667069827796888 & 0.5919270411742485 \\ 
+\verb|{'C': 0.1, 'fit_intercept': False, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & -0.25294066840873297 & 0.6667992432399723 & 0.5933840591441368 \\ 
+\verb|{'C': 0.1, 'fit_intercept': False, 'penalty': 'l1', 'random_state': 0, 'solver': 'liblinear'}| & -0.25284278026712426 & 0.6666781803118859 & 0.5926825319734499 \\ 
+\verb|{'C': 1, 'fit_intercept': True, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & -0.25240057818016326 & 0.6668904332782875 & 0.5938157681722519 \\ 
+\verb|{'C': 1, 'fit_intercept': True, 'penalty': 'l1', 'random_state': 0, 'solver': 'liblinear'}| & -0.25239188739527574 & 0.6668804622969574 & 0.593276131887108 \\ 
+\verb|{'C': 1, 'fit_intercept': False, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & -0.2529090591830536 & 0.6668566912268221 & 0.5933300955156224 \\ 
+\verb|{'C': 1, 'fit_intercept': False, 'penalty': 'l1', 'random_state': 0, 'solver': 'liblinear'}| & -0.25293564550886516 & 0.6668315057392386 & 0.59354595002968 \\ 
+\verb|{'C': 10, 'fit_intercept': True, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & -0.2524121658933465 & 0.6668937034206066 & 0.5938697318007663 \\ 
+\verb|{'C': 10, 'fit_intercept': True, 'penalty': 'l1', 'random_state': 0, 'solver': 'liblinear'}| & -0.25237588420267376 & 0.6669048471331865 & 0.5931682046300794 \\ 
+\verb|{'C': 10, 'fit_intercept': False, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & -0.2528625915186957 & 0.6668625697112861 & 0.5934919864011656 \\ 
+\verb|{'C': 10, 'fit_intercept': False, 'penalty': 'l1', 'random_state': 0, 'solver': 'liblinear'}| & -0.25291779669259107 & 0.6668553937259752 & 0.59354595002968 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|GaussianNB| in shown in \cref{pt:GaussianNB} 
+
+\begin{table} \centering
+\caption{GaussianNB} 
+\label{pt:GaussianNB} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'priors': None}| & -0.13714668309069245 & 0.7439216577784568 & 0.5527494468728077 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|DecisionTreeClassifier| in shown in \cref{pt:DecisionTreeClassifier} 
+
+\begin{table} \centering
+\caption{DecisionTreeClassifier} 
+\label{pt:DecisionTreeClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'max_depth': None, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'best'}| & -0.020710502502817363 & 16.871652545442537 & 0.5115212346878204 \\ 
+\verb|{'max_depth': None, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'random'}| & -0.04114568000590779 & 16.511929410087117 & 0.521936214991096 \\ 
+\verb|{'max_depth': None, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'best'}| & -0.04913235946235717 & 14.31192383931627 & 0.5210727969348659 \\ 
+\verb|{'max_depth': None, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'random'}| & -0.048327796034007164 & 13.909929258400737 & 0.5198855971075496 \\ 
+\verb|{'max_depth': None, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'best'}| & -0.052674333231652604 & 11.256321160165053 & 0.5192380335653769 \\ 
+\verb|{'max_depth': None, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'random'}| & -0.03989668338856234 & 10.539607860509177 & 0.5155145431978846 \\ 
+\verb|{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'best'}| & -0.03895256511202616 & 16.562250870493525 & 0.5204791970212077 \\ 
+\verb|{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'random'}| & -0.03139589260890552 & 16.685267135902127 & 0.5169175975392586 \\ 
+\verb|{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'best'}| & -0.04807473532997264 & 14.197689859149907 & 0.5195618153364632 \\ 
+\verb|{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'random'}| & -0.035832304670696535 & 14.204473137606321 & 0.5142733797420539 \\ 
+\verb|{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'best'}| & -0.04905646694970445 & 11.29865425514423 & 0.5177270519669742 \\ 
+\verb|{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'random'}| & -0.048742045099146036 & 10.575464434953705 & 0.5195078517079489 \\ 
+\verb|{'max_depth': None, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'best'}| & -0.02623180253022861 & 16.76727845414882 & 0.5145431978846258 \\ 
+\verb|{'max_depth': None, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'random'}| & -0.05007383779617203 & 16.349775487149625 & 0.5266310506718471 \\ 
+\verb|{'max_depth': None, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'best'}| & -0.04552700370542828 & 13.422968375601922 & 0.5165938157681722 \\ 
+\verb|{'max_depth': None, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'random'}| & -0.028878251658917886 & 13.218263067445722 & 0.5128163617721656 \\ 
+\verb|{'max_depth': None, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'best'}| & -0.027147944422617698 & 10.337428281080651 & 0.5099562894609033 \\ 
+\verb|{'max_depth': None, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'random'}| & -0.050076057217044 & 9.166910081488856 & 0.517834979224003 \\ 
+\verb|{'max_depth': None, 'max_features': None, 'min_samples_split': 2, 'splitter': 'best'}| & -0.0555539266823426 & 16.280807149367856 & 0.5286277049268793 \\ 
+\verb|{'max_depth': None, 'max_features': None, 'min_samples_split': 2, 'splitter': 'random'}| & -0.04763748605590434 & 16.42059583975515 & 0.5245804327883007 \\ 
+\verb|{'max_depth': None, 'max_features': None, 'min_samples_split': 4, 'splitter': 'best'}| & -0.046322082029842004 & 15.561735132438178 & 0.5226377421617829 \\ 
+\verb|{'max_depth': None, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'}| & -0.04469569041499177 & 15.528193346925073 & 0.518968215422805 \\ 
+\verb|{'max_depth': None, 'max_features': None, 'min_samples_split': 8, 'splitter': 'best'}| & -0.06647456371967841 & 13.187665309754978 & 0.5261453780152178 \\ 
+\verb|{'max_depth': None, 'max_features': None, 'min_samples_split': 8, 'splitter': 'random'}| & -0.05038505900821 & 13.264650915638724 & 0.5192380335653769 \\ 
+\verb|{'max_depth': 10, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'best'}| & -0.0674656519505592 & 0.7609313628982107 & 0.5413631212562733 \\ 
+\verb|{'max_depth': 10, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'random'}| & -0.09265092745276204 & 0.7549302319167248 & 0.5381253035454104 \\ 
+\verb|{'max_depth': 10, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'best'}| & -0.07339555904162998 & 0.7639390131015542 & 0.5308941773244833 \\ 
+\verb|{'max_depth': 10, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'random'}| & -0.0893235600006066 & 0.7542918016101855 & 0.539906103286385 \\ 
+\verb|{'max_depth': 10, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'best'}| & -0.09883689730662537 & 0.7377082199942254 & 0.5353191948626626 \\ 
+\verb|{'max_depth': 10, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'random'}| & -0.07544556801393076 & 0.7403238927824821 & 0.5365603583184934 \\ 
+\verb|{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'best'}| & -0.09610532754692147 & 0.7978453143174602 & 0.5396902487723274 \\ 
+\verb|{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'random'}| & -0.0926321558246519 & 0.7612583704357989 & 0.5384490853164967 \\ 
+\verb|{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'best'}| & -0.09643605630030616 & 0.792733583504035 & 0.5395823215152987 \\ 
+\verb|{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'random'}| & -0.08417175850486158 & 0.7421250572848473 & 0.5408774485996438 \\ 
+\verb|{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'best'}| & -0.08775511863283514 & 0.7508715225586701 & 0.5383951216879823 \\ 
+\verb|{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'random'}| & -0.07922032398919021 & 0.7313337243658097 & 0.5379094490313528 \\ 
+\verb|{'max_depth': 10, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'best'}| & -0.07828593612100199 & 0.7384978930076804 & 0.5335923587502024 \\ 
+\verb|{'max_depth': 10, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'random'}| & -0.08705607114519465 & 0.7533432914931568 & 0.541039339485187 \\ 
+\verb|{'max_depth': 10, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'best'}| & -0.0903647604185398 & 0.7625504606499695 & 0.5361286492903783 \\ 
+\verb|{'max_depth': 10, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'random'}| & -0.07459320526869995 & 0.755188299383276 & 0.5330527224650585 \\ 
+\verb|{'max_depth': 10, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'best'}| & -0.09532900916945564 & 0.7242350420730722 & 0.5403378123145001 \\ 
+\verb|{'max_depth': 10, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'random'}| & -0.09524412216169065 & 0.7300082072945722 & 0.5451945388807944 \\ 
+\verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 2, 'splitter': 'best'}| & -0.10949454465181607 & 0.8728889716103384 & 0.5477308294209703 \\ 
+\verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 2, 'splitter': 'random'}| & -0.11458608303031026 & 0.8423028377677229 & 0.550375047218175 \\ 
+\verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 4, 'splitter': 'best'}| & -0.1095797236886431 & 0.8762829462300609 & 0.5477847930494847 \\ 
+\verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'}| & -0.12123934610814824 & 0.8344583870145453 & 0.548540283848686 \\ 
+\verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 8, 'splitter': 'best'}| & -0.10862448494542254 & 0.853535819996185 & 0.5475689385354271 \\ 
+\verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 8, 'splitter': 'random'}| & -0.11735748555408154 & 0.806710181141043 & 0.548971992876801 \\ 
+\verb|{'max_depth': 20, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'best'}| & -0.10861490639218663 & 1.903262987600323 & 0.5490259565053154 \\ 
+\verb|{'max_depth': 20, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'random'}| & -0.10020064966420494 & 1.5754177361733002 & 0.5458960660514813 \\ 
+\verb|{'max_depth': 20, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'best'}| & -0.08756913116377851 & 1.5710848032786964 & 0.5379634126598672 \\ 
+\verb|{'max_depth': 20, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'random'}| & -0.09605405892478314 & 1.553208257892036 & 0.5403378123145001 \\ 
+\verb|{'max_depth': 20, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'best'}| & -0.09955386369751462 & 1.5176468478007938 & 0.5461119205655388 \\ 
+\verb|{'max_depth': 20, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'random'}| & -0.1032652493663031 & 1.2150410526561939 & 0.5422805029410177 \\ 
+\verb|{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'best'}| & -0.09672998939186894 & 1.6827003977794193 & 0.5422805029410177 \\ 
+\verb|{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'random'}| & -0.10310375729497356 & 1.7169573831120009 & 0.5475689385354271 \\ 
+\verb|{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'best'}| & -0.09273880483812258 & 1.7814329814020278 & 0.544439048081593 \\ 
+\verb|{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'random'}| & -0.12029597542601134 & 1.4656799354557548 & 0.5493497382764017 \\ 
+\verb|{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'best'}| & -0.11358401450669575 & 1.4852648309664345 & 0.5500512654470887 \\ 
+\verb|{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'random'}| & -0.10443344738275284 & 1.1684627251920119 & 0.5458421024229669 \\ 
+\verb|{'max_depth': 20, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'best'}| & -0.11219298663471755 & 1.4903040168346533 & 0.5434677027683341 \\ 
+\verb|{'max_depth': 20, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'random'}| & -0.0872342322353874 & 1.4489705311267467 & 0.5355890130052344 \\ 
+\verb|{'max_depth': 20, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'best'}| & -0.10207364230023663 & 1.4726343869489673 & 0.5428201392261616 \\ 
+\verb|{'max_depth': 20, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'random'}| & -0.08862191929489538 & 1.2586263628638854 & 0.541039339485187 \\ 
+\verb|{'max_depth': 20, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'best'}| & -0.09911812129340669 & 1.248722203446923 & 0.5400140305434138 \\ 
+\verb|{'max_depth': 20, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'random'}| & -0.08084621331405328 & 1.1098189373391072 & 0.5439533754249636 \\ 
+\verb|{'max_depth': 20, 'max_features': None, 'min_samples_split': 2, 'splitter': 'best'}| & -0.10523472840444503 & 2.53539011800077 & 0.5498893745615455 \\ 
+\verb|{'max_depth': 20, 'max_features': None, 'min_samples_split': 2, 'splitter': 'random'}| & -0.09348922607836352 & 2.3379130326897184 & 0.5465975932221683 \\ 
+\verb|{'max_depth': 20, 'max_features': None, 'min_samples_split': 4, 'splitter': 'best'}| & -0.10502641823388359 & 2.4794575733360795 & 0.5499973018185743 \\ 
+\verb|{'max_depth': 20, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'}| & -0.10516466479187114 & 2.2833700467495968 & 0.5518320651880633 \\ 
+\verb|{'max_depth': 20, 'max_features': None, 'min_samples_split': 8, 'splitter': 'best'}| & -0.10859594786547655 & 2.2074834768313947 & 0.550375047218175 \\ 
+\verb|{'max_depth': 20, 'max_features': None, 'min_samples_split': 8, 'splitter': 'random'}| & -0.10385041720089516 & 2.077547497398118 & 0.5513463925314338 \\ 
+\verb|{'max_depth': 40, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'best'}| & -0.045333248263320636 & 8.029124079242077 & 0.5293831957260806 \\ 
+\verb|{'max_depth': 40, 'max_features': 'auto', 'min_samples_split': 2, 'splitter': 'random'}| & -0.05703145356250827 & 6.686717187721453 & 0.5320274135232853 \\ 
+\verb|{'max_depth': 40, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'best'}| & -0.051401004752854806 & 7.081103389013952 & 0.5303545410393394 \\ 
+\verb|{'max_depth': 40, 'max_features': 'auto', 'min_samples_split': 4, 'splitter': 'random'}| & -0.05203998770300666 & 6.1599341920292225 & 0.5306243591819114 \\ 
+\verb|{'max_depth': 40, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'best'}| & -0.06472754073986464 & 5.201419260575808 & 0.5336463223787168 \\ 
+\verb|{'max_depth': 40, 'max_features': 'auto', 'min_samples_split': 8, 'splitter': 'random'}| & -0.056734296470099865 & 5.063905072267169 & 0.5307862500674545 \\ 
+\verb|{'max_depth': 40, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'best'}| & -0.040997995068633664 & 7.764663025842688 & 0.528303923155793 \\ 
+\verb|{'max_depth': 40, 'max_features': 'sqrt', 'min_samples_split': 2, 'splitter': 'random'}| & -0.05681063286692711 & 7.137587701654034 & 0.5331066860935729 \\ 
+\verb|{'max_depth': 40, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'best'}| & -0.06441681013665113 & 6.708312423477944 & 0.5352112676056338 \\ 
+\verb|{'max_depth': 40, 'max_features': 'sqrt', 'min_samples_split': 4, 'splitter': 'random'}| & -0.060002206805216396 & 6.650603108044395 & 0.5315417408666558 \\ 
+\verb|{'max_depth': 40, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'best'}| & -0.06243922437174554 & 5.8115047221752905 & 0.5321353407803141 \\ 
+\verb|{'max_depth': 40, 'max_features': 'sqrt', 'min_samples_split': 8, 'splitter': 'random'}| & -0.07070525882897893 & 4.685152680998963 & 0.5351573039771195 \\ 
+\verb|{'max_depth': 40, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'best'}| & -0.06288106434266982 & 6.900423156504733 & 0.5336463223787168 \\ 
+\verb|{'max_depth': 40, 'max_features': 'log2', 'min_samples_split': 2, 'splitter': 'random'}| & -0.06816030732110545 & 5.946678367663425 & 0.5313798499811128 \\ 
+\verb|{'max_depth': 40, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'best'}| & -0.06597298628381543 & 5.935813517642 & 0.5345097404349468 \\ 
+\verb|{'max_depth': 40, 'max_features': 'log2', 'min_samples_split': 4, 'splitter': 'random'}| & -0.04982151300537385 & 5.031451622491039 & 0.5268469051859047 \\ 
+\verb|{'max_depth': 40, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'best'}| & -0.07058767624742379 & 4.45951915201144 & 0.5303005774108251 \\ 
+\verb|{'max_depth': 40, 'max_features': 'log2', 'min_samples_split': 8, 'splitter': 'random'}| & -0.06761708654099019 & 4.398800092524693 & 0.5330527224650585 \\ 
+\verb|{'max_depth': 40, 'max_features': None, 'min_samples_split': 2, 'splitter': 'best'}| & -0.05359714506781943 & 9.969752586554485 & 0.5333765042361448 \\ 
+\verb|{'max_depth': 40, 'max_features': None, 'min_samples_split': 2, 'splitter': 'random'}| & -0.06072489696572214 & 9.43748198397123 & 0.5361286492903783 \\ 
+\verb|{'max_depth': 40, 'max_features': None, 'min_samples_split': 4, 'splitter': 'best'}| & -0.062397032012856624 & 9.430934787918622 & 0.5362365765474071 \\ 
+\verb|{'max_depth': 40, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'}| & -0.053377001879662656 & 8.811233855938893 & 0.5326210134369435 \\ 
+\verb|{'max_depth': 40, 'max_features': None, 'min_samples_split': 8, 'splitter': 'best'}| & -0.06490970846878907 & 8.1688074379898 & 0.5355350493767201 \\ 
+\verb|{'max_depth': 40, 'max_features': None, 'min_samples_split': 8, 'splitter': 'random'}| & -0.05119682971381212 & 7.705180896796142 & 0.5303545410393394 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|BaggingClassifier| in shown in \cref{pt:BaggingClassifier} 
+
+\begin{table} \centering
+\caption{BaggingClassifier} 
+\label{pt:BaggingClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'bootstrap': True, 'n_estimators': 10, 'warm_start': True}| & -0.1050794273492317 & 0.8352751295569847 & 0.5373158491176947 \\ 
+\verb|{'bootstrap': True, 'n_estimators': 10, 'warm_start': False}| & -0.0950557166920003 & 0.8507019609573805 & 0.5320813771517997 \\ 
+\verb|{'bootstrap': True, 'n_estimators': 15, 'warm_start': True}| & -0.13200721690252992 & 0.7274381610227858 & 0.5498893745615455 \\ 
+\verb|{'bootstrap': True, 'n_estimators': 15, 'warm_start': False}| & -0.11543862099297852 & 0.7327921551230738 & 0.5439533754249636 \\ 
+\verb|{'bootstrap': True, 'n_estimators': 20, 'warm_start': True}| & -0.1336617484378022 & 0.7079155241594297 & 0.5499973018185743 \\ 
+\verb|{'bootstrap': True, 'n_estimators': 20, 'warm_start': False}| & -0.14225358219785234 & 0.7020294034628034 & 0.5531271922724084 \\ 
+\verb|{'bootstrap': False, 'n_estimators': 10, 'warm_start': True}| & -0.058100291610876376 & 11.104426727555026 & 0.5254978144730452 \\ 
+\verb|{'bootstrap': False, 'n_estimators': 10, 'warm_start': False}| & -0.05744587784508437 & 11.145889776416714 & 0.5261453780152178 \\ 
+\verb|{'bootstrap': False, 'n_estimators': 15, 'warm_start': True}| & -0.06043090546834695 & 10.775951129113652 & 0.5267389779288759 \\ 
+\verb|{'bootstrap': False, 'n_estimators': 15, 'warm_start': False}| & -0.05923563051726122 & 10.76881176008108 & 0.5261453780152178 \\ 
+\verb|{'bootstrap': False, 'n_estimators': 20, 'warm_start': True}| & -0.059276970151288744 & 10.563334173249881 & 0.5264151961577896 \\ 
+\verb|{'bootstrap': False, 'n_estimators': 20, 'warm_start': False}| & -0.060298265868351075 & 10.574644529000668 & 0.5283578867843074 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|GradientBoostingClassifier| in shown in \cref{pt:GradientBoostingClassifier} 
+
+\begin{table} \centering
+\caption{GradientBoostingClassifier} 
+\label{pt:GradientBoostingClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'loss': 'deviance', 'max_depth': 2, 'n_estimators': 50}| & -0.18548897544734122 & 0.6830182206531282 & 0.5617613728347094 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 2, 'n_estimators': 100}| & -0.20884735218067085 & 0.6790623469832585 & 0.5733635529653014 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 2, 'n_estimators': 200}| & -0.22828790206064808 & 0.6745222675318447 & 0.5819977335276024 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 3, 'n_estimators': 50}| & -0.1988989382968056 & 0.6806617762586397 & 0.5699638443688954 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 3, 'n_estimators': 100}| & -0.2200881815628315 & 0.6761389761261933 & 0.5795154066159408 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 3, 'n_estimators': 200}| & -0.2363291442270561 & 0.6716330811401792 & 0.5843181695537208 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 4, 'n_estimators': 50}| & -0.20835705874776678 & 0.6786232897049046 & 0.5751983163347903 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 4, 'n_estimators': 100}| & -0.22308359373954167 & 0.6745045916086958 & 0.5816739517565161 \\ 
+\verb|{'loss': 'deviance', 'max_depth': 4, 'n_estimators': 200}| & -0.23893764125883776 & 0.6702457865034233 & 0.5862608601802385 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 2, 'n_estimators': 50}| & -0.1847440910781173 & 0.6829407350856749 & 0.5626247908909395 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 2, 'n_estimators': 100}| & -0.20926705634868958 & 0.6790046050934061 & 0.5727159894231288 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 2, 'n_estimators': 200}| & -0.22726333561809087 & 0.6744367426838893 & 0.5822135880416599 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 3, 'n_estimators': 50}| & -0.19914204665040436 & 0.6805231369871149 & 0.5690464626841509 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 3, 'n_estimators': 100}| & -0.21974755886482367 & 0.6760982466129021 & 0.5769251524472505 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 3, 'n_estimators': 200}| & -0.23496752952221067 & 0.6717685050183627 & 0.5862608601802385 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 4, 'n_estimators': 50}| & -0.20788199755074044 & 0.6784826306494052 & 0.574442825535589 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 4, 'n_estimators': 100}| & -0.22697333907828487 & 0.6739273385116046 & 0.5828611515838324 \\ 
+\verb|{'loss': 'exponential', 'max_depth': 4, 'n_estimators': 200}| & -0.23990841594816037 & 0.669975810297706 & 0.5855593330095515 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|AdaBoostClassifier| in shown in \cref{pt:AdaBoostClassifier} 
+
+\begin{table} \centering
+\caption{AdaBoostClassifier} 
+\label{pt:AdaBoostClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'algorithm': 'SAMME', 'n_estimators': 50}| & -0.16202343572939126 & 0.6923525331481664 & 0.5604122821218499 \\ 
+\verb|{'algorithm': 'SAMME', 'n_estimators': 100}| & -0.18649596174036143 & 0.6925477881994658 & 0.5714208623387836 \\ 
+\verb|{'algorithm': 'SAMME', 'n_estimators': 10}| & -0.1090623065964531 & 0.6917914459964255 & 0.5416329393988452 \\ 
+\verb|{'algorithm': 'SAMME.R', 'n_estimators': 50}| & -0.21190654350453886 & 0.6922926735159969 & 0.5801629701581135 \\ 
+\verb|{'algorithm': 'SAMME.R', 'n_estimators': 100}| & -0.2379642616702815 & 0.6925967515039755 & 0.5866386055798392 \\ 
+\verb|{'algorithm': 'SAMME.R', 'n_estimators': 10}| & -0.1312413298031614 & 0.691336877395664 & 0.5502671199611462 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|RandomForestClassifier| in shown in \cref{pt:RandomForestClassifier} 
+
+\begin{table} \centering
+\caption{RandomForestClassifier} 
+\label{pt:RandomForestClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 10, 'warm_start': True}| & -0.11059480502726404 & 0.8108144819689164 & 0.5383951216879823 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 10, 'warm_start': False}| & -0.10724791835259917 & 0.7999703977034974 & 0.5342399222923749 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 20, 'warm_start': True}| & -0.14197208954433393 & 0.6974313656584554 & 0.5517781015595489 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 20, 'warm_start': False}| & -0.13928760655059969 & 0.6993283667958945 & 0.5534509740434946 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 40, 'warm_start': True}| & -0.16910703283310768 & 0.6852118780989652 & 0.5644595542604285 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 40, 'warm_start': False}| & -0.16478368274299116 & 0.6853344661428263 & 0.5592250822945335 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 10, 'warm_start': True}| & -0.17395222717599546 & 0.6834943150280455 & 0.556742755382872 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 10, 'warm_start': False}| & -0.17211760715872093 & 0.6830526728876479 & 0.5622470454913389 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 20, 'warm_start': True}| & -0.18212568842055 & 0.6833223356645429 & 0.5636500998327127 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 20, 'warm_start': False}| & -0.17488292379683856 & 0.6828162887323403 & 0.558577518752361 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True}| & -0.19727468433468953 & 0.6828882987004091 & 0.5623010091198533 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 40, 'warm_start': False}| & -0.20095039573325457 & 0.682911102161185 & 0.5620311909772813 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 10, 'warm_start': True}| & -0.11365036350959978 & 0.7348347533858612 & 0.5402298850574713 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 10, 'warm_start': False}| & -0.10840343062659219 & 0.72042118585603 & 0.541740866655874 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 20, 'warm_start': True}| & -0.13361592323738103 & 0.6950368913324827 & 0.5474610112783984 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 20, 'warm_start': False}| & -0.14390772825476272 & 0.6929337565083244 & 0.5527494468728077 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 40, 'warm_start': True}| & -0.1675447240756398 & 0.6832073449108156 & 0.5600885003507636 \\ 
+\verb|{'bootstrap': True, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 40, 'warm_start': False}| & -0.17064113158317906 & 0.6824275605025176 & 0.5644595542604285 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 10, 'warm_start': True}| & -0.09519094951006757 & 0.8072881387837687 & 0.5319194862662565 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 10, 'warm_start': False}| & -0.10992948105571276 & 0.8091766972583542 & 0.5382332308024391 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 20, 'warm_start': True}| & -0.1306005012293372 & 0.7024186860357193 & 0.5461119205655388 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 20, 'warm_start': False}| & -0.13739479098183405 & 0.6995778110970007 & 0.5503210835896606 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 40, 'warm_start': True}| & -0.17709773060945144 & 0.6828104835730007 & 0.5634882089471696 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 40, 'warm_start': False}| & -0.18048550135280705 & 0.6827526742409444 & 0.5665101721439749 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 10, 'warm_start': True}| & -0.17725565992622316 & 0.683323483595032 & 0.5612217365495656 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 10, 'warm_start': False}| & -0.1627335102344154 & 0.6843361683518244 & 0.5599805730937348 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 20, 'warm_start': True}| & -0.18178816123060004 & 0.6834987207254766 & 0.5602503912363067 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 20, 'warm_start': False}| & -0.18745041784569505 & 0.6828798615828626 & 0.5580378824672171 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True}| & -0.20606640614715088 & 0.6826435639686521 & 0.5640278452323134 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': False}| & -0.19608350947163555 & 0.68255029776144 & 0.5632723544331121 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 10, 'warm_start': True}| & -0.12572511108143059 & 0.7173654795308102 & 0.5475689385354271 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 10, 'warm_start': False}| & -0.13005010821545748 & 0.7127662178741435 & 0.5484863202201716 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 20, 'warm_start': True}| & -0.14809763274467214 & 0.6910854837377955 & 0.5557174464410987 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 20, 'warm_start': False}| & -0.14972369728697288 & 0.6908591075939468 & 0.5554476282985268 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 40, 'warm_start': True}| & -0.17389787472696172 & 0.6814542031934401 & 0.5659705358588312 \\ 
+\verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 40, 'warm_start': False}| & -0.1842748821434952 & 0.6798672218090966 & 0.5656467540877449 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 10, 'warm_start': True}| & -0.11668616914617647 & 0.8522990317706787 & 0.5390966488586693 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 10, 'warm_start': False}| & -0.12418208792322227 & 0.8320298713030495 & 0.5382332308024391 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 20, 'warm_start': True}| & -0.14939189386663987 & 0.7029547948646525 & 0.555339701041498 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 20, 'warm_start': False}| & -0.13093258499757 & 0.7087404646424914 & 0.5495116291619448 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 40, 'warm_start': True}| & -0.1638280117967592 & 0.6887915463125265 & 0.559710754951163 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': None, 'n_estimators': 40, 'warm_start': False}| & -0.16315051605390063 & 0.6888832251485147 & 0.5615994819491663 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 10, 'warm_start': True}| & -0.1739654268896016 & 0.6833312413509286 & 0.5574982461820733 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 10, 'warm_start': False}| & -0.16803141971049929 & 0.6839329933803643 & 0.5558793373266419 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 20, 'warm_start': True}| & -0.1836420551659721 & 0.6827352096425712 & 0.5627327181479682 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 20, 'warm_start': False}| & -0.1791037483238409 & 0.6828962141389359 & 0.5609519184069937 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True}| & -0.19243794715343965 & 0.6827396309763001 & 0.563973881603799 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 10, 'n_estimators': 40, 'warm_start': False}| & -0.18965871825080471 & 0.6829325740843305 & 0.5611138092925368 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 10, 'warm_start': True}| & -0.1246688186015692 & 0.7175305169814419 & 0.5497274836760023 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 10, 'warm_start': False}| & -0.13073906317871198 & 0.7220205638736964 & 0.5489180292482867 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 20, 'warm_start': True}| & -0.14816335096480215 & 0.6949396999770198 & 0.5552857374129837 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 20, 'warm_start': False}| & -0.14543026265397563 & 0.6966986618263223 & 0.5586854460093896 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 40, 'warm_start': True}| & -0.16318795417965903 & 0.6855317271979298 & 0.5634342453186553 \\ 
+\verb|{'bootstrap': False, 'criterion': 'gini', 'max_depth': 50, 'n_estimators': 40, 'warm_start': False}| & -0.16522034795893514 & 0.6853215999135548 & 0.5635961362041984 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 10, 'warm_start': True}| & -0.10804405966279895 & 0.8438509041157952 & 0.5388268307160974 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 10, 'warm_start': False}| & -0.10591995707686741 & 0.87957091887665 & 0.5340780314068317 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 20, 'warm_start': True}| & -0.12718714874014325 & 0.712919006069912 & 0.5491878473908586 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 20, 'warm_start': False}| & -0.14646901002778723 & 0.7023098388207916 & 0.5555015919270412 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 40, 'warm_start': True}| & -0.16369369010936574 & 0.6898240786638478 & 0.5620851546057957 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': None, 'n_estimators': 40, 'warm_start': False}| & -0.15735297989608865 & 0.690247181892502 & 0.5561491554692137 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 10, 'warm_start': True}| & -0.16615154686976497 & 0.6833645148755811 & 0.5579839188387027 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 10, 'warm_start': False}| & -0.17700157127989025 & 0.6835051957027212 & 0.5589552641519616 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 20, 'warm_start': True}| & -0.18035886587032768 & 0.683035036036675 & 0.5632183908045977 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 20, 'warm_start': False}| & -0.18297683632488293 & 0.6826906024747122 & 0.5630025362905402 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True}| & -0.19080108921700445 & 0.6827127709413083 & 0.5640278452323134 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': False}| & -0.19070446264094398 & 0.6829508658985224 & 0.5637580270897415 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 10, 'warm_start': True}| & -0.12343022989999608 & 0.7195689725092813 & 0.547137229507312 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 10, 'warm_start': False}| & -0.12130869716981074 & 0.7189517817956053 & 0.5486482111057147 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 20, 'warm_start': True}| & -0.15954171435403897 & 0.6908385730473875 & 0.5613836274351087 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 20, 'warm_start': False}| & -0.15802555786954198 & 0.6911146955547585 & 0.5591711186660191 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 40, 'warm_start': True}| & -0.17148288783287557 & 0.6834172661765084 & 0.5611138092925368 \\ 
+\verb|{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 50, 'n_estimators': 40, 'warm_start': False}| & -0.17647011343039565 & 0.6828977166775779 & 0.56694188117209 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+
+Parameter tuning process of \verb|KNeighborsClassifier| in shown in \cref{pt:KNeighborsClassifier} 
+
+\begin{table} \centering
+\caption{KNeighborsClassifier} 
+\label{pt:KNeighborsClassifier} 
+\begin{tabular}{llll}\toprule\bfseries Parameters & \bfseries Gini Score & \bfseries Logloss &\bfseries Accuracies \\\midrule 
+\verb|{'algorithm': 'auto', 'leaf_size': 30, 'n_neighbors': 5}| & -0.047863551593440246 & 1.7816013390952237 & 0.5190221790513194 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 30, 'n_neighbors': 10}| & -0.066646825822817 & 0.780029225583593 & 0.5214505423344665 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 30, 'n_neighbors': 15}| & -0.07590010540847403 & 0.7179234248871208 & 0.5265770870433328 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 50, 'n_neighbors': 5}| & -0.04877717035473261 & 1.7965438460845415 & 0.5186444336517188 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 50, 'n_neighbors': 10}| & -0.06811903777405237 & 0.7814457313273296 & 0.5232853057039555 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 50, 'n_neighbors': 15}| & -0.07681012637172202 & 0.7177130155978387 & 0.526037450758189 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 80, 'n_neighbors': 5}| & -0.0510214253779655 & 1.7929229505071442 & 0.520101451621607 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 80, 'n_neighbors': 10}| & -0.0682661503343649 & 0.7776619721338062 & 0.5216663968485241 \\ 
+\verb|{'algorithm': 'auto', 'leaf_size': 80, 'n_neighbors': 15}| & -0.07610522662167774 & 0.7178024065624691 & 0.5263612325292752 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 30, 'n_neighbors': 5}| & -0.049159074280956006 & 1.793979042969222 & 0.5210727969348659 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 30, 'n_neighbors': 10}| & -0.0682296116581178 & 0.7794700583972313 & 0.523069451189898 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 30, 'n_neighbors': 15}| & -0.07453593252904489 & 0.7163663700429584 & 0.5250661054449302 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 50, 'n_neighbors': 5}| & -0.050025466102329386 & 1.794699213483488 & 0.520101451621607 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 50, 'n_neighbors': 10}| & -0.06717118152552204 & 0.7776094879792579 & 0.5211807241918947 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 50, 'n_neighbors': 15}| & -0.07715454544753686 & 0.7155392420836387 & 0.5257676326156171 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 80, 'n_neighbors': 5}| & -0.051753180120558406 & 1.8047906931496462 & 0.5218282877340672 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 80, 'n_neighbors': 10}| & -0.06920649559541903 & 0.779274394143611 & 0.5226377421617829 \\ 
+\verb|{'algorithm': 'ball_tree', 'leaf_size': 80, 'n_neighbors': 15}| & -0.07283832086653508 & 0.7168951331937534 & 0.5256597053585883 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 30, 'n_neighbors': 5}| & -0.047863551593440246 & 1.7816013390952237 & 0.5190221790513194 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 30, 'n_neighbors': 10}| & -0.066646825822817 & 0.780029225583593 & 0.5214505423344665 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 30, 'n_neighbors': 15}| & -0.07590010540847403 & 0.7179234248871208 & 0.5265770870433328 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 50, 'n_neighbors': 5}| & -0.04877717035473261 & 1.7965438460845415 & 0.5186444336517188 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 50, 'n_neighbors': 10}| & -0.06811903777405237 & 0.7814457313273296 & 0.5232853057039555 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 50, 'n_neighbors': 15}| & -0.07681012637172202 & 0.7177130155978387 & 0.526037450758189 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 80, 'n_neighbors': 5}| & -0.0510214253779655 & 1.7929229505071442 & 0.520101451621607 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 80, 'n_neighbors': 10}| & -0.0682661503343649 & 0.7776619721338062 & 0.5216663968485241 \\ 
+\verb|{'algorithm': 'kd_tree', 'leaf_size': 80, 'n_neighbors': 15}| & -0.07610522662167774 & 0.7178024065624691 & 0.5263612325292752 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 30, 'n_neighbors': 5}| & -0.04915329210552688 & 1.7262704462274479 & 0.5195618153364632 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 30, 'n_neighbors': 10}| & -0.06254292973227082 & 0.7709663767965982 & 0.520802978792294 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 30, 'n_neighbors': 15}| & -0.07890419668890924 & 0.7149639610152951 & 0.5339701041498031 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 50, 'n_neighbors': 5}| & -0.04915329210552688 & 1.7262704462274479 & 0.5195618153364632 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 50, 'n_neighbors': 10}| & -0.06254292973227082 & 0.7709663767965982 & 0.520802978792294 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 50, 'n_neighbors': 15}| & -0.07890419668890924 & 0.7149639610152951 & 0.5339701041498031 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 80, 'n_neighbors': 5}| & -0.04915329210552688 & 1.7262704462274479 & 0.5195618153364632 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 80, 'n_neighbors': 10}| & -0.06254292973227082 & 0.7709663767965982 & 0.520802978792294 \\ 
+\verb|{'algorithm': 'brute', 'leaf_size': 80, 'n_neighbors': 15}| & -0.07890419668890924 & 0.7149639610152951 & 0.5339701041498031 \\ 
+\bottomrule
+\end{tabular}
+\end{table} 
+% MLPClassifier : {'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'adam', 'warm_start': False} 
+% LogisticRegression : {'C': 0.1, 'fit_intercept': False, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'} 
+% GaussianNB : {'priors': None} 
+% DecisionTreeClassifier : {'max_depth': 10, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'} 
+% BaggingClassifier : {'bootstrap': True, 'n_estimators': 20, 'warm_start': False} 
+% GradientBoostingClassifier : {'loss': 'exponential', 'max_depth': 4, 'n_estimators': 200} 
+% AdaBoostClassifier : {'algorithm': 'SAMME.R', 'n_estimators': 100} 
+% RandomForestClassifier : {'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True} 
+% KNeighborsClassifier : {'algorithm': 'brute', 'leaf_size': 30, 'n_neighbors': 15} 
+
+Final result is shown in \cref{final}:
+
+ 
+\begin{table}\centering
+\centering
+\caption{Final Evaluation}\label{final}
+\begin{tabular}{llll}
+\toprule\bfseries Model & \bfseries Best Parameters & \bfseries Accuracies & \bfseries Gini Score \\\midrule 
+MLPClassifier & \verb|{'hidden_layer_sizes': (30, 30, 30, 30), 'max_iter': 1000, 'solver': 'adam', 'warm_start': False}| & 0.5751528220128237 & -0.2320081259257396 \\ 
+LogisticRegression & \verb|{'C': 0.1, 'fit_intercept': False, 'penalty': 'l2', 'random_state': 0, 'solver': 'liblinear'}| & 0.5843800851839605 & -0.2388195096109058 \\ 
+GaussianNB & \verb|{'priors': None}| & 0.5241446342766946 & -0.07582639860482021 \\ 
+DecisionTreeClassifier & \verb|{'max_depth': 10, 'max_features': None, 'min_samples_split': 4, 'splitter': 'random'}| & 0.5378446159833772 & -0.06988636352674393 \\ 
+BaggingClassifier & \verb|{'bootstrap': True, 'n_estimators': 20, 'warm_start': False}| & 0.535124423494844 & -0.09586354074015561 \\ 
+GradientBoostingClassifier & \verb|{'loss': 'exponential', 'max_depth': 4, 'n_estimators': 200}| & 0.5589247945511916 & -0.16708993198114297 \\ 
+AdaBoostClassifier & \verb|{'algorithm': 'SAMME.R', 'n_estimators': 100}| & 0.5785503139289678 & -0.20789640626993564 \\ 
+RandomForestClassifier & \verb|{'bootstrap': True, 'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 40, 'warm_start': True}| & 0.5530028894239795 & -0.15313258803558907 \\ 
+KNeighborsClassifier & \verb|{'algorithm': 'brute', 'leaf_size': 30, 'n_neighbors': 15}| & 0.5256996837786969 & -0.049596920647069796 \\ 
+\bottomrule\end{tabular}
+\end{table} 
+%end 
