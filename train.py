@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import pickle
-# from tqdm import tqdm
+from tqdm import tqdm
 from logging import StreamHandler, DEBUG, Formatter, FileHandler, getLogger
 from sklearn.model_selection import StratifiedKFold, ParameterGrid
 from sklearn.metrics import log_loss, roc_auc_score, roc_curve, auc
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     best_params = dict()
 
     # Traverse model and parameter set.
-    for model, all_params in (models.items()):
+    for model, all_params in tqdm(models.items()):
         logger.info('\nParameter tuning process of \\verb|' +
                     names[model] +
                     '| in shown in \cref{pt:' +
@@ -144,7 +144,7 @@ if __name__ == '__main__':
         gini_score[model] = []
         accuracy_score[model] = []
 
-    for train_idx, valid_idx in (cv.split(x_test, y_test)):
+    for train_idx, valid_idx in tqdm(cv.split(x_test, y_test)):
         trn_x = x_train.iloc[train_idx, :]
         val_x = x_train.iloc[valid_idx, :]
 
