@@ -46,22 +46,26 @@ if __name__ == '__main__':
 
     use_cols = x_train.columns.values
 
-    logger.debug('train columns: {} {}'.format(use_cols.shape, use_cols))
-
-    logger.info('data preparation end {}'.format(x_train.shape))
-
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=0)
 
     best_params = dict()
 
     # Traverse model and parameter set.
     for model, all_params in tqdm(models.items()):
-        logger.info('\n\tTraining Model: {}'.format(model))
+        logger.info('\n'
+                    '\\begin{table}')
+        logger.info('\\caption{' + names[model] + '}')
+        logger.info('\\label{pt:' + names[model] + '}')
+        logger.info('\\begin{tabular}{llll}'
+                    '\\toprule'
+                    '\\bfseries Best Parameters & '
+                    '\\bfseries Gini Score & '
+                    '\\bfseries Logloss &'
+                    '\\bfseries Accuracies \\\\'
+                    '\\midrule')
         min_score = 100
         min_params = None
         for params in list(ParameterGrid(all_params)):
-            logger.info('\n\t\tparams: {}'.format(params))
-
             list_gini_score = []
             list_logloss_score = []
             list_accuracy_score = []
@@ -86,10 +90,12 @@ if __name__ == '__main__':
                 list_logloss_score.append(sc_logloss)
                 list_gini_score.append(sc_gini)
                 list_accuracy_score.append(sc_accuracy)
-                logger.debug(
-                    '\t\tlogloss: {}, gini: {}, accuracy: {}'.format(sc_logloss,
-                                                                     sc_gini,
-                                                                     sc_accuracy))
+                # logger.debug(
+                #     '\t\tlogloss: {}, gini: {}, accuracy: {}'.format(
+                # sc_logloss,
+                #                                                      sc_gini,
+                #
+                # sc_accuracy))
                 break
 
             with open(DIR + 'all_preds.pkl', 'wb') as f:
@@ -101,29 +107,22 @@ if __name__ == '__main__':
             if min_score > sc_gini:
                 min_score = sc_gini
                 min_params = params
-            logger.info(
-                '\t\tlogloss: {}, gini: {}, accuracy: {}'.format(sc_logloss,
-                                                                 sc_gini,
-                                                                 sc_accuracy))
-            logger.info(
-                '\t\tcurrent min score: {}, params: {}'.format(min_score,
-                                                               min_params))
+            # logger.debug(
+            #     '\tlogloss: {}, gini: {}, accuracy: {}'.format(sc_logloss,
+            #                                                    sc_gini,
+            #                                                    sc_accuracy))
+            logger.info('\\verb|{}| & {} & {} & {} \\\\'
+                        .format(params,
+                                sc_gini,
+                                sc_logloss,
+                                sc_accuracy))
 
-        logger.info('\n\tminimum params: {}'.format(min_params))
-        logger.info('\tminimum gini: {}'.format(min_score))
+        logger.info('\\bottomrule\\end{tabular}')
+
+        # logger.debug('\n% minimum params: {}'.format(min_params))
+        # logger.debug('\tgini: {}'.format(min_score))
 
         best_params[model] = min_params
-
-        # clf = model(**min_params)
-        # clf.fit(x_train, y_train)
-        # with open(DIR + 'model.pkl', 'wb') as f:
-        #     pickle.dump(clf, f, -1)
-        #
-        # logger.info('\tTraining end.\n')
-        # with open(DIR + 'model.pkl', 'rb') as f:
-        #     clf = pickle.load(f)
-
-    print(best_params)
 
     df = load_test_data()
 
@@ -155,15 +154,23 @@ if __name__ == '__main__':
             gini_score[model].append(sc_gini)
             accuracy_score[model].append(sc_accuracy)
             pass
+
+    logger.info('Final result:\n\n')
+    logger.info('\\begin{tabular}{llll}'
+                '\\toprule'
+                '\\bfseries Model & '
+                '\\bfseries Best Parameters & '
+                '\\bfseries Accuracies & '
+                '\\bfseries Gini Score \\\\'
+                '\\midrule')
     for model, params in best_params.items():
         gini_score[model] = np.mean(gini_score[model])
         accuracy_score[model] = np.mean((accuracy_score[model]))
-        logger.info('{} & {} & {} & {} \\\\'.format(names[model],
-                                                    params,
-                                                    accuracy_score[model],
-                                                    gini_score[model]))
-
-    print(gini_score)
-    print(accuracy_score)
+        logger.info('{} & \\verb|{}| & {} & {} \\\\'
+                    .format(names[model],
+                            params,
+                            accuracy_score[model],
+                            gini_score[model]))
+    logger.info('\\bottomrule\\end{tabular}')
 
     logger.info('end')
