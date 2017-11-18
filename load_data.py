@@ -1,5 +1,4 @@
 import pandas as pd
-from tqdm import tqdm
 from logging import getLogger
 
 TRAIN_DATA = './data/dota2Train.csv'
